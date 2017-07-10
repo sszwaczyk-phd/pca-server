@@ -9,7 +9,7 @@ import java.util.Objects;
  * Created by sszwaczyk on 10.07.17.
  */
 @Entity
-@Table(name = "users")
+@Table(name = "users", schema = "web")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -25,6 +25,14 @@ public class User implements Serializable {
     @NotNull
     @Column(name = "last_name", nullable = false)
     private String lastName;
+
+    @NotNull
+    @Column(name = "email", nullable = false)
+    private String email;
+
+    @NotNull
+    @Column(name = "password", nullable = false)
+    private String password;
 
     public Long getId() {
         return id;
@@ -50,6 +58,22 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -68,5 +92,16 @@ public class User implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

@@ -44,7 +44,7 @@ public class UserController extends ApiController {
     public ResponseEntity<List<UserDTO>> getAllUsers(Pageable pageable) {
         log.debug("REST request to get a page of Users");
         Page<UserDTO> page = userService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/v1/users");
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, ApiController.API_PATH + "/users");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 }
