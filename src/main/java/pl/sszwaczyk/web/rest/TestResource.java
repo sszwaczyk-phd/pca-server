@@ -9,16 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by sszwaczyk on 06.07.17.
  */
 @RestController
 @RequestMapping("/test")
-public class HelloResource {
+public class TestResource {
 
     @GetMapping("/hello")
     public ResponseEntity<String> hello() {
@@ -27,10 +26,9 @@ public class HelloResource {
 
     @GetMapping("/download")
     public ResponseEntity<Resource> download() throws IOException {
-        File file = new ClassPathResource("static/GODLO_WAT_png.png").getFile();
-        InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
+        InputStream is = new ClassPathResource("static/GODLO_WAT_png.png").getInputStream();
+        InputStreamResource resource = new InputStreamResource(is);
         return ResponseEntity.ok()
-                .contentLength(file.length())
                 .contentType(MediaType.parseMediaType("application/octet-stream"))
                 .body(resource);
     }

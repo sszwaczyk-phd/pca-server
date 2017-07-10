@@ -1,0 +1,32 @@
+
+server:
+  port: 9090
+security:
+  basic:
+    enabled: false
+
+---
+#Spring Production profile
+spring:
+  profiles: prod
+  datasource:
+        url: jdbc:postgresql://localhost:5432/pca-db
+        username: pca-server
+        password: pca-server
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+---
+#Spring Developement profile
+spring:
+  profiles: default
+  datasource:
+      url: jdbc:postgresql://localhost:5432/pca-dev-db
+      username: pca-server
+      password: pca-server
+  jpa:
+    show-sql: true
+    format-sql: true
+    hibernate:
+      ddl-auto: create-drop

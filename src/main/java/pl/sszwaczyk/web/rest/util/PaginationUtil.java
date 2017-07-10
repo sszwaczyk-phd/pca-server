@@ -1,4 +1,4 @@
-package com.electronicarmory.armory.web.rest.util;
+package pl.sszwaczyk.web.rest.util;
 
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
