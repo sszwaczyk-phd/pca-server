@@ -17,6 +17,7 @@ public class UserMapperImpl implements UserMapper {
         dto.setId(user.getId());
         dto.setFirstName(user.getFirstName());
         dto.setLastName(user.getLastName());
+        dto.setEmail(user.getEmail());
         return dto;
     }
 

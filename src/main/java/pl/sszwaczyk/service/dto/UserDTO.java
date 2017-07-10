@@ -19,6 +19,9 @@ public class UserDTO implements Serializable {
     @NotNull
     private String lastName;
 
+    @NotNull
+    private String email;
+
     public Long getId() {
         return id;
     }
@@ -41,6 +44,14 @@ public class UserDTO implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
@@ -70,6 +81,7 @@ public class UserDTO implements Serializable {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }
